@@ -200,7 +200,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/summer_shadow"
-        android:text="@string/key_6"
+        android:text="@string/key_2"
         android:textColor="@color/black"
         android:textSize="@dimen/btn_textsize_20"
         android:layout_marginEnd="@dimen/margin_6"
@@ -264,7 +264,6 @@
         app:layout_constraintTop_toBottomOf="@id/btn_2" />
 
     <com.google.android.material.button.MaterialButton
-
         android:id="@+id/btn_equal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
