@@ -11,4 +11,9 @@
     <color name="red_clear">#A6FF6E6E</color>
     <color name="summer_shadow">#A6FFD967</color>
     <color name="summer_orange">#FF9800</color>
+    <color name="summer_light_green">#5CB300</color>
+    <color name="summer_green">#417E00</color>
+    <color name="summer_dark_green">#004303</color>
+    <color name="summer_shadow_green">#A6004303</color>
+    <color name="dark_red_clear">#A6950000</color>
 </resources>

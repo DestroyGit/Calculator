@@ -13,4 +13,21 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="SummerTheme" parent="Theme.CalcV3">
+        <item name="colorPrimary">@color/summer_light_green</item>
+        <item name="colorPrimaryVariant">@color/summer_green</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="SummerTheme.Buttons">
+        <item name="android:textSize">@dimen/btn_textsize_20</item>
+        <item name="android:backgroundTint">@color/summer_shadow</item>
+        <item name="colorOnPrimary">@color/black</item>
+    </style>
+
+    <style name="SummerTheme.Buttons.Red">
+        <item name="android:backgroundTint">@color/red_clear</item>
+    </style>
+
 </resources>
