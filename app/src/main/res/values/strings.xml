@@ -20,4 +20,7 @@
     <string name="key_add">+</string>
     <string name="key_minus">-</string>
     <string name="_0">0</string>
+    <string name="summer">Summer</string>
+    <string name="winter">Winter</string>
+    <string name="back">Back</string>
 </resources>

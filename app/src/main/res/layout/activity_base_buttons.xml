@@ -6,14 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:theme="@style/SummerTheme.Buttons"
     tools:context=".MainActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_clear"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        style="@style/SummerTheme.Buttons.Red"
+        style="@style/SummerTheme.Red"
         android:text="@string/key_clear"
         android:layout_marginEnd="@dimen/margin_6"
         app:layout_constraintBottom_toTopOf="@id/btn_7"
