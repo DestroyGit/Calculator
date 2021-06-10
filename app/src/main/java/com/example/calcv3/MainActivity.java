@@ -5,10 +5,12 @@ package com.example.calcv3;
  * записался в resultText, то при, например, повороте экрана, вместо числа будет
  * последняя ошибка, которая была ранее
  * 2. Допилить нажатие кнопки % процента
- * 3. 
+ * 3. Перевести в Enum классы Errors и Symbols
+ * 4. Переделать Calculation в читаемый вид
  */
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +18,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Symbols symbols;
     private Calculation calculation;
+    private ThemeStorage storage;
 
     private final static String keyEnterAndResult = "EnterResult";
 
@@ -35,13 +39,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        storage = new ThemeStorage(this);
+        setTheme(storage.getTheme().getResource());
         setContentView(R.layout.activity_main);
 
         symbols = new Symbols();
         calculation = new Calculation();
 
         initViews();
+    }
 
+    // перезапускаем акивити после возвращения из меню настроек
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
     }
 
     // инициализация view
@@ -76,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnEq = findViewById(R.id.btn_equal);
         Button btnClear = findViewById(R.id.btn_clear);
         Button btnBcksp = findViewById(R.id.btn_backspace);
+        ImageView btnSet = findViewById(R.id.img_settings);
+        btnSet.setOnClickListener(this);
         Button[] buttons = {btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnAdd, btnMin, btnMult, btnDiv, btnEq, btnDot, btnClear, btnBcksp};
         for (int i = 0; i < buttons.length; i++) {
             clickBtn(buttons[i]);
@@ -86,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void clickBtn(Button btn) {
         btn.setOnClickListener(this);
     }
-
 
     @Override
     public void onClick(View view) {
@@ -144,6 +157,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (view.getId() == R.id.btn_backspace){
             deleteLastSymbol();
+        }
+        if (view.getId() == R.id.img_settings){
+            openSettingsActivity();
         }
     }
 
@@ -210,5 +226,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         stringResultText = calculation.getText2();
         enterText.setText(stringEnterText);
         resultText.setText(stringResultText);
+    }
+
+    private void openSettingsActivity(){
+        Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
+        startActivity(intent);
     }
 }
